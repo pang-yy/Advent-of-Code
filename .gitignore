@@ -1,0 +1,9 @@
+*.in
+
+# Java
+*.class
+
+# Go
+
+# some async version of solutions for exploration purposes
+async/
