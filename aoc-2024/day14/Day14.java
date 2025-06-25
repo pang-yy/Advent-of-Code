@@ -1,7 +1,6 @@
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.IntStream;
 import java.util.List;
 import java.util.Objects;
 
@@ -137,7 +136,7 @@ class Day14 {
         sc.close();
         int width = 101;
         int height = 103;
-        int duration = 10000;
+        int duration = 2;
         Simulator ns = new Simulator(width, height, 0, initRobots);
 
         System.out.printf("Part One: %d \n", calculatePartOne(ns.calculateFor(duration), width, height));
