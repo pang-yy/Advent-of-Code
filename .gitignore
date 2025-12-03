@@ -1,4 +1,5 @@
 *.in
+input
 
 # Java
 *.class
