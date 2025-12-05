@@ -15,8 +15,8 @@ func main() {
 		return
 	}
 
-	//fmt.Printf("Part 1: %d\n", cal1(ranges))
-	//fmt.Printf("Part 2: %d\n", cal2(ranges))
+	//fmt.Printf("Part 1: %d\n", cal_seq(ranges, isSym))
+	//fmt.Printf("Part 2: %d\n", cal_seq(ranges, isBruteForceRepeat))
 	fmt.Printf("Part 1: %d\n", cal_conc(ranges, isSym))
 	fmt.Printf("Part 2: %d\n", cal_conc(ranges, isBruteForceRepeat))
 
@@ -82,23 +82,11 @@ func isBruteForceRepeat(n, l int) bool {
 	return false
 }
 
-func cal1(ranges [][]int) int {
+func cal_seq(ranges [][]int, prop func(int,int)bool) int {
 	total := 0
 	for _, r := range ranges {
 		for i := r[0]; i <= r[1]; i++ {
-			if l := intLen(i); isSym(i, l) {
-				total += i
-			}
-		}
-	}
-	return total
-}
-
-func cal2(ranges [][]int) int {
-	total := 0
-	for _, r := range ranges {
-		for i := r[0]; i <= r[1]; i++ {
-			if l := intLen(i); isBruteForceRepeat(i, l) {
+			if l := intLen(i); prop(i, l) {
 				total += i
 			}
 		}
